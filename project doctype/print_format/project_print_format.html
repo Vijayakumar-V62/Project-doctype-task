@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Report</title>
+    <style>
+        .header { font-size: 20px; font-weight: bold; }
+        .table { width: 100%; border-collapse: collapse; }
+        .table th, .table td { border: 1px solid #ddd; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">Project Report</div>
+    <p><strong>Project Name:</strong> {{ doc.project_name }}</p>
+    <p><strong>Project Manager:</strong> {{ doc.project_manager }}</p>
+    <p><strong>Start Date:</strong> {{ doc.start_date }}</p>
+    <p><strong>End Date:</strong> {{ doc.end_date }}</p>
+    <p><strong>Budget:</strong> {{ doc.budget }}</p>
+    <p><strong>Client:</strong> {{ doc.client }}</p>
+
+    <h3>Project Tasks</h3>
+    <table class="table">
+        <tr>
+            <th>Task Name</th>
+            <th>Assigned To</th>
+            <th>Task Status</th>
+        </tr>
+        {% for task in doc.project_tasks %}
+        <tr>
+            <td>{{ task.task_name }}</td>
+            <td>{{ task.assigned_to }}</td>
+            <td>{{ task.task_status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Budget Utilization</h3>
+    <p>{{ doc.budget_utilization }}%</p>
+</body>
+</html>
+
+
+
